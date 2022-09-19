@@ -24,7 +24,7 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
-        return false;
+      return weightPounds <= 40;
     }
 
     /*

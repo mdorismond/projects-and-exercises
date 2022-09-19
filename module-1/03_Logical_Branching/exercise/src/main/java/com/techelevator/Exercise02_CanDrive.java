@@ -21,6 +21,20 @@ public class Exercise02_CanDrive {
     canDrive(false, false) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger) {
+        if (hasPermit == true && withLicensedPassenger == true) {
+            return true;
+        }
+        if (hasPermit == true && withLicensedPassenger == false) {
+            return false;
+        }
+        if (hasPermit == false && withLicensedPassenger == true) {
+            return false;
+        }
+        if (hasPermit == false && withLicensedPassenger == false) {
+
+
+            return false;
+        }
         return false;
     }
 
@@ -34,7 +48,19 @@ public class Exercise02_CanDrive {
     canDrive(false, true, 23) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger, int passengerAge) {
-        return false;
+
+        if (hasPermit == true && withLicensedPassenger == true && passengerAge >= 21) {
+            return true;
+        }
+        if (hasPermit == true && withLicensedPassenger == true && passengerAge < 21) {
+            return false;
+        }
+        if (hasPermit == false && withLicensedPassenger == true && passengerAge >= 21) {
+            return false;
+        }
+        {
+            return false;
+        }
     }
 
     /*
@@ -48,6 +74,16 @@ public class Exercise02_CanDrive {
     canDrive(false, true, 23, true) ➔ false
      */
     public boolean canDrive(boolean hasPermit, boolean withLicensedPassenger, int passengerAge, boolean isPassengerOurGuardian) {
+        if (hasPermit == true && withLicensedPassenger == true && passengerAge >= 21 && isPassengerOurGuardian == false) {
+            return true;
+        }
+        if (hasPermit == true && withLicensedPassenger == true && passengerAge >= 18 && isPassengerOurGuardian == true) {
+            return true;
+        }
+        if (hasPermit == false && withLicensedPassenger == true && passengerAge >= 21 && isPassengerOurGuardian == false) {
+            return false;
+        }
         return false;
     }
 }
+

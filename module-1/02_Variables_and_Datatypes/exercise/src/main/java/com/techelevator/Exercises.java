@@ -29,7 +29,7 @@ public class Exercises {
         many raccoons are left in the woods?
         */
 		int raccoonsPlaying = 3;
-		int = raccoonsEating = 2;
+		int  raccoonsEating = 2;
 		int racconsLeft = raccoonsPlaying - raccoonsEating;
 		System.out.println(racconsLeft);
         /* Exercise 4
@@ -90,7 +90,7 @@ public class Exercises {
         */
 		double hiltsQuarters = 0.25;
 		double hiltsDimes = 0.10;
-		double hitlsNickels = 0.10;
+		double hiltsNickels = 0.10;
 		double totalMoney = hiltsQuarters + hiltsDimes + hiltsNickels;
 		System.out.println(totalMoney);
 
@@ -145,7 +145,7 @@ public class Exercises {
         */
 		double msHiltTotalCash = 10.00;
 		double truckCost = 3.00;
-		double pencilCost 2.00;
+		double pencilCost = 2.00;
 		double remainingCash = msHiltTotalCash - (truckCost + pencilCost);
 		System.out.println(remainingCash);
 
@@ -195,8 +195,8 @@ public class Exercises {
         20. A bee has 6 legs. How many legs do 8 bees have?
         */
 		int oneBeeLegs = 6;
-		int numberOfBees = 8;
-		int totalBeeLegs = oneBeeLegs * numberOfBees;
+		int numberOfBees2 = 8;
+		int totalBeeLegs = oneBeeLegs * numberOfBees2;
 		System.out.println(totalBeeLegs);
 
 
@@ -427,7 +427,7 @@ public class Exercises {
         */
 		int totalPretzels = 480;
 		int oneServingOfPretzels = 12;
-		int = totalPretzelServings = totalPretzels / oneServingOfPretzels;
+		int  totalPretzelServings = totalPretzels / oneServingOfPretzels;
 		System.out.println(totalPretzelServings);
 
 

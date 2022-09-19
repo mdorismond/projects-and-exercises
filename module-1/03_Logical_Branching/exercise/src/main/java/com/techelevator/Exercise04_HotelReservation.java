@@ -24,8 +24,17 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3) ➔ 269.97
      */
     public double calculateStayTotal(int numberOfNights) {
+
+        if (numberOfNights < 3) {
+            return numberOfNights * DAILY_RATE;
+        }
+
+        if (numberOfNights >= 3) {
+            return numberOfNights * DISCOUNT_RATE;
+        }
         return 0;
     }
+
 
     /*
     The owners of Innovator's Inn realized weekends are more popular than weekdays. Because of this, they've raised
@@ -42,7 +51,16 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, 2) ➔ 289.97
      */
     public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights) {
-        return 0;
+        if (numOfTotalNights < 3) {
+            return numOfTotalNights * DAILY_RATE;
+        }
+        if (numOfTotalNights >= 3) {
+            return (numOfTotalNights - numOfWeekendNights) * DAILY_RATE + numOfWeekendNights * DISCOUNT_RATE;
+        }
+        {
+            return 0;
+
+        }
     }
 
     /*
@@ -60,6 +78,13 @@ public class Exercise04_HotelReservation {
     calculateStayTotal(3, 1, true) ➔ 269.97
      */
     public double calculateStayTotal(int numOfTotalNights, int numOfWeekendNights, boolean isRewardsMember) {
-        return 0;
+        if (isRewardsMember) {
+            return numOfTotalNights * DISCOUNT_RATE;
+        }
+        {
+            return DAILY_RATE;
+        }
     }
 }
+
+

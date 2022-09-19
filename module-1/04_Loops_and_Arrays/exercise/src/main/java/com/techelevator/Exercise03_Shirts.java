@@ -16,9 +16,23 @@ public class Exercise03_Shirts {
     Examples:
     buildOrder() → ['S', 'S', 'S', 'M', 'M', 'L']
      */
-    public char[] buildOrder() {
-        return new char[] {};    
+    public char[] buildBulkOrder(int numberOfShirts) {
+        char[] order = new char[numberOfShirts];
+        for (int i = 0; i < order.length; i++) {
+            int size = i % 3;
+            if (size == 0) {
+                order[i] = SMALL_TSHIRT;
+            }
+            else if (size == 1) {
+                order[i] = MEDIUM_TSHIRT;
+            }
+            else {
+                order[i] = LARGE_TSHIRT;
+            }
+        }
+        return order;
     }
+
 
     /*
     Another customer called in and is hosting a large networking event and
@@ -36,9 +50,17 @@ public class Exercise03_Shirts {
     buildBulkOrder(4) → ['S', 'M', 'L', 'S']
     buildBulkOrder(0) → []
      */
-    public char[] buildBulkOrder(int numberOfShirts) { 
-        return new char[] {};    
+    public char[] buildOrder() {
+        char[] order = new char[6];
+        order[0] = SMALL_TSHIRT;
+        order[1] = SMALL_TSHIRT;
+        order[2] = SMALL_TSHIRT;
+        order[3] = MEDIUM_TSHIRT;
+        order[4] = MEDIUM_TSHIRT;
+        order[5] = LARGE_TSHIRT;
+        return order;
     }
+
 
     /*
     The warehouse is out of small shirts and will only request more when the
@@ -54,6 +76,15 @@ public class Exercise03_Shirts {
     placeRequest([]) → false
      */
     public boolean placeRequest(char[] order) {
-        return false; 
+        boolean requestMore = false;
+        for (int i = 0; i < order.length; i++) {
+            if (order[i] == SMALL_TSHIRT) {
+                requestMore = true;
+                break;
+            }
+        }
+        return requestMore;
     }
 }
+
+

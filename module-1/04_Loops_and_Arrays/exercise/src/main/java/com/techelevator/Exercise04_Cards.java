@@ -24,9 +24,7 @@ public class Exercise04_Cards {
     getFirstCard(["1-C", "1-D", "1-H", "1-S", "2-C"]) → "1-C"
     getFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → "K-C"
     */
-    public String getFirstCard(String[] hand) {
-        return "";
-    }
+
 
     /*
     One of the players feels lucky and discards the first card from their hand.
@@ -42,8 +40,21 @@ public class Exercise04_Cards {
     discardFirstCard(["K-C", "Q-D", "J-H", "10-S", "Q-C"]) → ["Q-D", "J-H", "10-S", "Q-C"]
      */
     public String[] discardFirstCard(String[] hand) {
-        return new String[] {};
+
+        String[] newHand = new String[4];
+
+        newHand[0] = hand[1]; //7-H
+        newHand[1] = hand[2]; //5-H
+        newHand[2] = hand[3];
+        newHand[3] = hand[4];
+
+        return newHand;
     }
+}
+
+
+
+
 
     /*
     Once a player has drawn the top card from the deck, they must discard it.
@@ -60,7 +71,17 @@ public class Exercise04_Cards {
     discardTopCard(["9-H"]) → []
     discardTopCard([]) → []
      */
-    public String[] discardTopCard(String[] remainingDeck) {
-        return new String[] {};
-    }    
-}
+            //public String[] discardTopCard(String[] remainingDeck){
+            //int adjustedSize = 0;
+
+            //adjustedSize = remainingDeck.length - 1;
+
+            //String[] newDeck = new String[adjustedSize];
+
+           // for (int i = 1; i < remainingDeck.length; i++){
+                //newDeck[i-1] = remainingDeck[i];
+            //}
+            //return newDeck;
+       // }
+
+
