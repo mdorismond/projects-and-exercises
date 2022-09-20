@@ -24,7 +24,7 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50) ➔ false
      */
     public boolean acceptPackage(int weightPounds) {
-      return weightPounds <= 40;
+        return weightPounds <= 40;
     }
 
     /*
@@ -41,8 +41,16 @@ public class Exercise05_AcceptPackage {
     acceptPackage(50, 4, 5, 10) ➔ false
      */
     public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches) {
-        return false;
+        int cubicFeet = lengthInches * widthInches * heightInches;
+
+        return weightPounds <= 40 && cubicFeet <= 6912;
     }
+
+        {
+            return 0;
+    }
+
+}
 
     /*
     All was well until a customer showed up with a 16-foot garden hose laid out straight in a 2x2x194 inch shipping box.
@@ -63,7 +71,7 @@ public class Exercise05_AcceptPackage {
     acceptPackage(40, 10, 10, 70, true) ➔ false
     acceptPackage(50, 4, 5, 10, true) ➔ false
      */
-    public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
-        return false;
-    }
-}
+    //public boolean acceptPackage(int weightPounds, int lengthInches, int widthInches, int heightInches, boolean isSurchargePaid) {
+        //return false;
+    //}
+//}
