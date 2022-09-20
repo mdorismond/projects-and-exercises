@@ -31,14 +31,16 @@ public class Exercise07_StoreHours {
     isStoreOpen(17) ➔ false
     isStoreOpen(22) ➔ false
      */
-    public boolean isStoreOpen(int currentHour) {
-        if(currentHour >= 8 && currentHour < 17) {
-            return true;
-        }
-        {
+   // public boolean isStoreOpen(int currentHour) {
+       // if (currentHour >= 8 && currentHour < 17) {
+       //     return true;
+      //  }
 
-        return false;
-    }
+
+       // return false;
+    //}
+
+
 
     /*
     Shelia forgot to take into account the day of the week.
@@ -58,12 +60,13 @@ public class Exercise07_StoreHours {
     isStoreOpen(12, 'W') ➔ true
     isStoreOpen(12, 'S') ➔ false
      */
-    public boolean isStoreOpen(int currentHour, char currentDay){
-            if (currentDay == 'M' && currentDay == 'W' && currentDay == 'F') {
+/*
+        public boolean isStoreOpen(int currentHour, char currentDay){
+            if (currentDay == 'M' && currentDay == 'W' && currentDay == 'F')
                 if (currentHour >= 8 && currentHour < 17) {
                     return true;
                 }
-            }
+
             {
 
                 return false;
@@ -84,18 +87,21 @@ public class Exercise07_StoreHours {
     isStoreOpen(12, 'S', false) ➔ false
     isStoreOpen(9, 'S', true) ➔ true
      */
-    public boolean isStoreOpen(int currentHour, char currentDay, boolean isSummer) {
-            if (currentDay == 'M' && currentDay == 'W' && currentDay == 'F') {
+
+
+       public boolean isStoreOpen(int currentHour, char currentDay, boolean isSummer){
+           if (currentDay == 'M' && currentDay == 'W' && currentDay == 'F')
                 if (currentHour >= 8 && currentHour < 17) {
                     return true;
+               }
+        / if (isSummer == true)
+                if (currentHour >= 8 && currentDay == 'W' && currentHour < 20) {
+                    return true;
                 }
-                if(isSummer == true){
-                    if(currentHour >= 8 && currentDay == 'W' && currentHour < 20 ) {
-                        return true;
-                    }
-                    if(currentHour >= 9 && currentHour < 15 && currentDay == 'S' ){
-                        return true;
-                    }
-                    return false
+         if (currentHour >= 9 && currentHour < 15 && currentDay == 'S') {
+                    return true;
                 }
+                return false;
+            }
+        }
 

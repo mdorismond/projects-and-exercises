@@ -24,7 +24,13 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110) ➔ 22.5
      */
     public double calculateElectricBill(double unitsUsed) {
-        return 0;
+        if (unitsUsed <= BASIC_SERVICE_LIMIT) {
+            return unitsUsed * BASIC_SERVICE_RATE;
+        }
+
+
+            return 0;
+
     }
 
     /*
@@ -40,7 +46,11 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, true) ➔ 21.375
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
-        return 0;
+        double discountBillAmount = RENEWABLE_ENERGY_DISCOUNT(BASIC_SERVICE_RATE * unitsUsed);
+                if(discountBillAmount <= BASIC_SERVICE_LIMIT){
+                    return discountBillAmount;
+                }
+                return 0;
     }
 
     /*
@@ -66,6 +76,10 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, 120) ➔ -2.0
      */
     public double calculateElectricBill(double unitsUsed, double unitsReturned) {
+        double billCost = (unitsUsed * RENEWABLE_ENERGY_DISCOUNT) - unitsReturned;
+                if(billCost <= BASIC_SERVICE_LIMIT) {
+                    return billCost;
+                }
         return 0;
     }
 }
