@@ -1,11 +1,51 @@
 package com.techelevator;
 
+import java.util.Locale;
+
 public class Exercises {
 	public static void main(String[] args) {
     	// 01
+		//
+		String name = "Tech Elevator mdmdmdmdmdm mdmdm dmdmdmmdm sir air ........";
+		System.out.println("Lower case??? : " + name.toLowerCase());
+		boolean containFlag = name.toLowerCase().contains("elevator");
+		System.out.println("True or False : " + containFlag);
+
+
+		//"Te    ch E     levator"
+		System.out.println("substring 2: " + name.substring(5));
+
+		//
+
+		//
+		//
+//		int n = 10, firstTerm = 0, secondTerm = 1;
+//		System.out.println("Fibonacci Series till " + n + " terms:");
+//
+//		for (int i = 1; i <= n; ++i) {
+//			System.out.print(firstTerm + ", ");
+//
+//			// compute the next term
+//			int nextTerm = firstTerm + secondTerm;
+//			firstTerm = secondTerm;
+//			secondTerm = nextTerm;
+		//
+
+		String bootcampName = "Tech Elevator";
+		System.out.println("bootcampName 1 :" + bootcampName);
+		System.out.println("bootcampName Upper case :" + bootcampName.toUpperCase());
+		System.out.println("bootcampName 2 :" + bootcampName);
+
+		String upperCaseName = bootcampName.toUpperCase();  //assign upperCaseName a value
+		System.out.println("upperBootcampName 3 :" + upperCaseName);
+
+		//
 		String inputName = "Bob";
 		String returnMsg = helloName(inputName);
+
 		System.out.println(returnMsg);
+
+		System.out.println("Name of inputName: " + inputName);
 
 
 		//String name = new String("abc");
@@ -15,39 +55,39 @@ public class Exercises {
 //		myString = "test";
 //		System.out.println(myString);
 
-		String myString = "Pure Michigan";
-		String myOtherString = new String("Pure Michigan");
-		String yetAnotherString = "Ohio so much to discover";
-
-		String name;
-
-		name.toUpperCase();
-
-		//
-		//if (myString == myOtherString) {
-		//	System.out.println("match");
-		//} else
-		//{
-		//	System.out.println("no match");
-		//}
-
-		if (myString.equals(myOtherString)) {
-			System.out.println("match");
-		}
+//		String myString = "Pure Michigan";
+//		String myOtherString = new String("Pure Michigan");
+//		String yetAnotherString = "Ohio so much to discover";
+//
+//
+//		if (myString.equals(myOtherString)) {
+//			System.out.println("match");
+//		}
 
 		//02
 		//makeAbba("Hi", "Bye") → "HiByeByeHi"
-		String strA = "Hi";
+		String strA = "Hello";
 		String strB = "Bye";
 		returnMsg = makeAbba(strA, strB);
 		System.out.println(returnMsg);
 
 		//makeTags("i", "Yay") → "<i>Yay</i>"
 		String str1 = "i";
-		String str2 = "Yay";
+		String str2 = "Yayyyy";
 		returnMsg = makeTags(str1 , str2);
 		System.out.println(returnMsg);
 
+		//
+		//makeOutWord("<<>>", "Yay") → "<<Yay>>"
+		str1 = "<<>>";
+		str2 = "Yay";
+		returnMsg = makeOutWord(str1 , str2);
+		System.out.println(returnMsg);
+
+		//extraEnd("Hello") → "lololo"
+		str1 = "Hello";
+		returnMsg = extraEnd(str1);
+		System.out.println(returnMsg);
 
 
 	}
@@ -58,7 +98,8 @@ public class Exercises {
 	 helloName("X") → "Hello X!"
 	 */
 		public static String helloName (String name){
-			String retMsg = "Hello " + name + "" + "!";
+			String retMsg = "Hello, " + name + "" + "!";
+			name = "Changed Name to Mary";
 			return retMsg;
 		}
 
@@ -70,11 +111,11 @@ public class Exercises {
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
 		public static String makeAbba (String a, String b){
-			String retMsg = a + b +b +a;
+			String retMsg = a + b +b +a ;
 			return retMsg;
 		}
 
-	/*
+	/*  03
 	 The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example,
 	 the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, create the
 	 HTML string with tags around the word, e.g. "<i>Yay</i>".
@@ -84,12 +125,10 @@ public class Exercises {
 	 */
 		public static String makeTags (String tag, String word){
 			String retMsg = "<" + tag + ">" + word + "</" + tag + ">";
-
-
 			return retMsg;
 		}
 
-	/*
+	/*  04
 	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the
 	 middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting
 	 at index i and going up to but not including index j.
@@ -98,18 +137,24 @@ public class Exercises {
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
 		public static String makeOutWord (String out, String word){
-			return "";
+			String s1 = out.substring(0,2);
+			String s2 = out.substring(2);
+			String result = s1 + word + s2;
+			return result;
 		}
 
 	/*
 	 Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string
 	 length will be at least 2.
-	 extraEnd("Hello") → "lololo"
+	 extraEnd("Hello") → "lololo"  -- > HeHeHe
 	 extraEnd("ab") → "ababab"
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 		public static String extraEnd (String str){
-			return "";
+			int len = str.length();  //"Helloidodododododoodododoodo"
+			//String result = str.substring(len - 2) + str.substring(len - 2) + str.substring(len - 2);
+			String result = str.substring(0,2) + str.substring(0, 2) + str.substring(0, 2);
+			return result;
 		}
 
 	/*
@@ -241,7 +286,7 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 		public static String nTwice (String str,int n){
-			return "";
+			return str.substring(0, n) + str.substring(str.length() - n);
 		}
 
 	/*
