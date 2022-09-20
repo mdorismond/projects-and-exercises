@@ -54,8 +54,11 @@ public class Exercise04_HotelReservation {
         if (numOfTotalNights < 3) {
             return numOfTotalNights * DAILY_RATE;
         }
-        if (numOfTotalNights >= 3) {
-            return (numOfTotalNights - numOfWeekendNights) * DAILY_RATE + numOfWeekendNights * DISCOUNT_RATE;
+        if (numOfTotalNights >= 3 && numOfWeekendNights >= 1) {
+            return numOfTotalNights * DAILY_RATE;
+        }
+        if ( numOfTotalNights >= 3 && numOfWeekendNights == 0){
+            return numOfTotalNights * DISCOUNT_RATE;
         }
         {
             return 0;

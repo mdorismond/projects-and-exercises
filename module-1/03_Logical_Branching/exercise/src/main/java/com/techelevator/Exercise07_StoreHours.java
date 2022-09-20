@@ -31,14 +31,14 @@ public class Exercise07_StoreHours {
     isStoreOpen(17) ➔ false
     isStoreOpen(22) ➔ false
      */
-   // public boolean isStoreOpen(int currentHour) {
-       // if (currentHour >= 8 && currentHour < 17) {
-       //     return true;
-      //  }
+    public boolean isStoreOpen(int currentHour) {
+        if (currentHour >= 8 && currentHour < 17) {
+            return true;
+        }
 
 
-       // return false;
-    //}
+        return false;
+    }
 
 
 
@@ -59,22 +59,28 @@ public class Exercise07_StoreHours {
     isStoreOpen(8, 'M') ➔ true
     isStoreOpen(12, 'W') ➔ true
     isStoreOpen(12, 'S') ➔ false
+
      */
-/*
-        public boolean isStoreOpen(int currentHour, char currentDay){
-            if (currentDay == 'M' && currentDay == 'W' && currentDay == 'F')
-                if (currentHour >= 8 && currentHour < 17) {
-                    return true;
-                }
 
-            {
 
-                return false;
-            }
+
+         public static boolean isStoreOpen(int currentHour, char currentDay){
+             if(currentHour >= 8 && currentHour <= 17)
+            if(currentDay == 'M' && currentDay == 'W' && currentDay == 'F'){
+                return true;
         }
 
 
-    /*
+    return false;
+  }
+
+
+
+
+
+
+
+     /*
     Shelia's Seashell Store is open between 8 am (hour 8) and 5 pm (hour 17) on Monday (day M), Wednesday (day W), and Friday (day F).
     In the summer, the store is open for additional hours. On Wednesday (day W) the store stays open until 8 pm (hour 20) and is also
     open Saturday (day S) from 9 am (hour 9) to 3 pm (hour 15).
@@ -94,7 +100,7 @@ public class Exercise07_StoreHours {
                 if (currentHour >= 8 && currentHour < 17) {
                     return true;
                }
-        / if (isSummer == true)
+         if (isSummer == true)
                 if (currentHour >= 8 && currentDay == 'W' && currentHour < 20) {
                     return true;
                 }

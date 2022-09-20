@@ -46,7 +46,7 @@ public class Exercise06_ElectricBill {
     calculateElectricBill(110, true) ➔ 21.375
      */
     public double calculateElectricBill(double unitsUsed, boolean hasRenewableEnergy) {
-        double discountBillAmount = RENEWABLE_ENERGY_DISCOUNT(BASIC_SERVICE_RATE * unitsUsed);
+        double discountBillAmount = RENEWABLE_ENERGY_DISCOUNT * BASIC_SERVICE_RATE * unitsUsed;
                 if(discountBillAmount <= BASIC_SERVICE_LIMIT){
                     return discountBillAmount;
                 }
