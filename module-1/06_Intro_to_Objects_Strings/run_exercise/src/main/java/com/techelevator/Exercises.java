@@ -1,121 +1,32 @@
 package com.techelevator;
 
-import java.util.Locale;
-
 public class Exercises {
-	public static void main(String[] args) {
-    	// 01
-		//
-		String name = "Tech Elevator mdmdmdmdmdm mdmdm dmdmdmmdm sir air ........";
-		System.out.println("Lower case??? : " + name.toLowerCase());
-		boolean containFlag = name.toLowerCase().contains("elevator");
-		System.out.println("True or False : " + containFlag);
 
-
-		//"Te    ch E     levator"
-		System.out.println("substring 2: " + name.substring(5));
-
-		//
-
-		//
-		//
-//		int n = 10, firstTerm = 0, secondTerm = 1;
-//		System.out.println("Fibonacci Series till " + n + " terms:");
-//
-//		for (int i = 1; i <= n; ++i) {
-//			System.out.print(firstTerm + ", ");
-//
-//			// compute the next term
-//			int nextTerm = firstTerm + secondTerm;
-//			firstTerm = secondTerm;
-//			secondTerm = nextTerm;
-		//
-
-		String bootcampName = "Tech Elevator";
-		System.out.println("bootcampName 1 :" + bootcampName);
-		System.out.println("bootcampName Upper case :" + bootcampName.toUpperCase());
-		System.out.println("bootcampName 2 :" + bootcampName);
-
-		String upperCaseName = bootcampName.toUpperCase();  //assign upperCaseName a value
-		System.out.println("upperBootcampName 3 :" + upperCaseName);
-
-		//
-		String inputName = "Bob";
-		String returnMsg = helloName(inputName);
-
-		System.out.println(returnMsg);
-
-		System.out.println("Name of inputName: " + inputName);
-
-
-		//String name = new String("abc");
-//		String name="";
-//		System.out.println(name);
-//		String myString = "Pure Michigan";
-//		myString = "test";
-//		System.out.println(myString);
-
-//		String myString = "Pure Michigan";
-//		String myOtherString = new String("Pure Michigan");
-//		String yetAnotherString = "Ohio so much to discover";
-//
-//
-//		if (myString.equals(myOtherString)) {
-//			System.out.println("match");
-//		}
-
-		//02
-		//makeAbba("Hi", "Bye") → "HiByeByeHi"
-		String strA = "Hello";
-		String strB = "Bye";
-		returnMsg = makeAbba(strA, strB);
-		System.out.println(returnMsg);
-
-		//makeTags("i", "Yay") → "<i>Yay</i>"
-		String str1 = "i";
-		String str2 = "Yayyyy";
-		returnMsg = makeTags(str1 , str2);
-		System.out.println(returnMsg);
-
-		//
-		//makeOutWord("<<>>", "Yay") → "<<Yay>>"
-		str1 = "<<>>";
-		str2 = "Yay";
-		returnMsg = makeOutWord(str1 , str2);
-		System.out.println(returnMsg);
-
-		//extraEnd("Hello") → "lololo"
-		str1 = "Hello";
-		returnMsg = extraEnd(str1);
-		System.out.println(returnMsg);
-
-
-	}
-	/*  01
+	/*
 	 Given a string name, e.g. "Bob", return a greeting of the form "Hello Bob!".
 	 helloName("Bob") → "Hello Bob!"
 	 helloName("Alice") → "Hello Alice!"
 	 helloName("X") → "Hello X!"
 	 */
-		public static String helloName (String name){
-			String retMsg = "Hello, " + name + "" + "!";
-			name = "Changed Name to Mary";
-			return retMsg;
-		}
+	public String helloName(String name) {
+		String retMsg = "Hello " + name + "!";
+		return retMsg;
+	}
 
-	/* 02
+	/*
 	 Given two strings, a and b, return the result of putting them together in the order abba,
 	 e.g. "Hi" and "Bye" returns "HiByeByeHi".
 	 makeAbba("Hi", "Bye") → "HiByeByeHi"
 	 makeAbba("Yo", "Alice") → "YoAliceAliceYo"
 	 makeAbba("What", "Up") → "WhatUpUpWhat"
 	 */
-		public static String makeAbba (String a, String b){
-			String retMsg = a + b +b +a ;
-			return retMsg;
-		}
+	public String makeAbba(String a, String b) {
+		String retMsg = a + b + b + a;
+		return retMsg;
+	}
 
-	/*  03
+
+	/*
 	 The web is built with HTML strings like "<i>Yay</i>" which draws Yay as italic text. In this example,
 	 the "i" tag makes <i> and </i> which surround the word "Yay". Given tag and word strings, create the
 	 HTML string with tags around the word, e.g. "<i>Yay</i>".
@@ -123,12 +34,17 @@ public class Exercises {
 	 makeTags("i", "Hello") → "<i>Hello</i>"
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
-		public static String makeTags (String tag, String word){
-			String retMsg = "<" + tag + ">" + word + "</" + tag + ">";
-			return retMsg;
-		}
+	public String makeTags(String tag, String word) {
 
-	/*  04
+		String starttag = "<" + tag + ">";
+		String endtag = "</" + tag + ">";
+		String str = starttag + word + endtag;
+		return str;
+
+	}
+
+
+	/*
 	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the
 	 middle of the out string, e.g. "<<word>>". Note: use str.substring(i, j) to extract the String starting
 	 at index i and going up to but not including index j.
@@ -136,27 +52,22 @@ public class Exercises {
 	 makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
-		public static String makeOutWord (String out, String word){
-			String s1 = out.substring(0,2);
-			String s2 = out.substring(2);
-			String result = s1 + word + s2;
-			return result;
-		}
+	public String makeOutWord(String out, String word) {
+		return out.substring(0, 2) + word + out.substring(2);
+	}
+
 
 	/*
 	 Given a string, return a new string made of 3 copies of the last 2 chars of the original string. The string
 	 length will be at least 2.
-	 extraEnd("Hello") → "lololo"  -- > HeHeHe
+	 extraEnd("Hello") → "lololo"
 	 extraEnd("ab") → "ababab"
 	 extraEnd("Hi") → "HiHiHi"
 	 */
-		public static String extraEnd (String str){
-			int len = str.length();  //"Helloidodododododoodododoodo"
-			//String result = str.substring(len - 2) + str.substring(len - 2) + str.substring(len - 2);
-			String result = str.substring(0,2) + str.substring(0, 2) + str.substring(0, 2);
-			return result;
-		}
-
+	public String extraEnd(String str) {
+		String str2 = str.substring(str.length()-2);
+		return str2 + str2 + str2;
+	}
 	/*
 	 Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the
 	 string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty string ""
@@ -165,9 +76,14 @@ public class Exercises {
 	 firstTwo("abcdefg") → "ab"
 	 firstTwo("ab") → "ab"
 	 */
-		public static String firstTwo (String str){
-			return "";
+	public String firstTwo(String str) {
+		if (str.length() < 2) {
+			return str;
 		}
+		{
+			return str.substring(0, 2);
+		}
+	}
 
 	/*
 	 Given a string of even length, return the first half. So the string "WooHoo" yields "Woo".
@@ -175,9 +91,12 @@ public class Exercises {
 	 firstHalf("HelloThere") → "Hello"
 	 firstHalf("abcdef") → "abc"
 	 */
-		public static String firstHalf (String str){
-			return "";
+	public String firstHalf(String str) {
+		int stringHalf = str.length() / 2;
+		{
+			return str.substring(0, stringHalf);
 		}
+	}
 
 	/*
 	 Given a string, return a version without the first and last char, so "Hello" yields "ell".
@@ -186,9 +105,9 @@ public class Exercises {
 	 withoutEnd("java") → "av"
 	 withoutEnd("coding") → "odin"
 	 */
-		public static String withoutEnd (String str){
-			return "";
-		}
+	public String withoutEnd(String str) {
+		return str.substring(1, str.length() - 1);
+	}
 
 	/*
 	 Given 2 strings, a and b, return a string of the form short+long+short, with the shorter string
@@ -198,9 +117,14 @@ public class Exercises {
 	 comboString("hi", "Hello") → "hiHellohi"
 	 comboString("aaa", "b") → "baaab"
 	 */
-		public static String comboString (String a, String b){
-			return "";
+	public String comboString(String a, String b) {
+		if (a.length() > b.length()) {
+			return b + a + b;
 		}
+		{
+			return a + b + a;
+		}
+	}
 
 	/*
 	 Given 2 strings, return their concatenation, except omit the first char of each. The strings will
@@ -209,9 +133,10 @@ public class Exercises {
 	 nonStart("java", "code") → "avaode"
 	 nonStart("shotl", "java") → "hotlava"
 	 */
-		public static String nonStart (String a, String b){
-			return "";
-		}
+	public String nonStart(String a, String b) {
+		return a.substring(1) + b.substring(1);
+	}
+
 
 	/*
 	 Given a string, return a "rotated left 2" version where the first 2 chars are moved to the end.
@@ -220,9 +145,9 @@ public class Exercises {
 	 left2("java") → "vaja"
 	 left2("Hi") → "Hi"
 	 */
-		public static String left2 (String str){
-			return "";
-		}
+	public String left2(String str) {
+		return str.substring(2) + str.substring(0, 2);
+	}
 
 	/*
 	 Given a string, return a "rotated right 2" version where the last 2 chars are moved to the start.
@@ -231,9 +156,15 @@ public class Exercises {
 	 right2("java") → "vaja"
 	 right2("Hi") → "Hi"
 	 */
-		public static String right2 (String str){
-			return "";
+	public String right2(String str) {
+		int stringLength = str.length();
+		String right = str.substring(stringLength - 2);
+		String right2 = str.substring(0, stringLength - 2);
+		{
+			return right + right2;
+
 		}
+	}
 
 	/*
 	 Given a string, return a string length 1 from its front, unless front is false, in which case
@@ -242,9 +173,17 @@ public class Exercises {
 	 theEnd("Hello", false) → "o"
 	 theEnd("oh", true) → "o"
 	 */
-		public static String theEnd (String str,boolean front){
-			return "";
+	public String theEnd(String str, boolean front) {
+		if (front) {
+
+			return str.substring(0, 1);
 		}
+		{
+
+			return str.substring(str.length() - 1);
+
+		}
+	}
 
 	/*
 	 Given a string, return a version without both the first and last char of the string. The string
@@ -253,9 +192,16 @@ public class Exercises {
 	 withoutEnd2("abc") → "b"
 	 withoutEnd2("ab") → ""
 	 */
-		public static String withoutEnd2 (String str){
-			return "";
+	public String withoutEnd2(String str) {
+		if (str.length() >= 0) {
+			return str.substring(1, str.length() - 1);
 		}
+		{
+			return "";
+
+		}
+	}
+
 
 	/*
 	 Given a string of even length, return a string made of the middle two chars, so the string "string"
@@ -263,10 +209,12 @@ public class Exercises {
 	 middleTwo("string") → "ri"
 	 middleTwo("code") → "od"
 	 middleTwo("Practice") → "ct"
-	 */
-		public static String middleTwo (String str){
-			return "";
-		}
+	 /*/
+	public String middleTwo(String str) {
+		int length = str.length();
+		return str.substring(length / 2 - 1, length / 2 + 1);
+
+	}
 
 	/*
 	 Given a string, return true if it ends in "ly".
@@ -274,9 +222,16 @@ public class Exercises {
 	 endsLy("y") → false
 	 endsLy("oddy") → false
 	 */
-		public static boolean endsLy (String str){
+	public boolean endsLy(String str) {
+		int length = str.length();
+		if (length > 2) {
+			return str.length() >= 2 && str.substring(str.length() - 2).equals("ly");
+		}
+		{
+
 			return false;
 		}
+	}
 
 	/*
 	 Given a string and an int n, return a string made of the first and last n chars from the string. The
@@ -285,9 +240,10 @@ public class Exercises {
 	 nTwice("Chocolate", 3) → "Choate"
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
-		public static String nTwice (String str,int n){
-			return str.substring(0, n) + str.substring(str.length() - n);
-		}
+	public String nTwice(String str, int n) {
+
+		return str.substring(0, n) + str.substring(str.length() - n);
+	}
 
 	/*
 	 Given a string and an int n, return a string that starts at n and has a length of 2. Note that n may or may not be a valid
@@ -297,9 +253,11 @@ public class Exercises {
 	 twoChar("java", 2) → "va"
 	 twoChar("java", 3) → "ja"
 	 */
-		public static String twoChar (String str,int n){
-			return "";
-		}
+	public String twoChar(String str, int n) {
+		return str;
+	}
+
+
 
 	/*
 	 Given a string of odd length, return the string length 3 from its middle, so "Candy" yields "and".
@@ -308,8 +266,15 @@ public class Exercises {
 	 middleThree("and") → "and"
 	 middleThree("solving") → "lvi"
 	 */
-		public static String middleThree (String str){
-			return "";
+	public String middleThree(String str) {
+		int length = str.length();
+		if (length >= 3) {
+			return str;
+		}
+			{
+
+				return str.substring(length / 2 - 1, length / 2 + 2);
+			}
 		}
 
 	/*
@@ -320,7 +285,13 @@ public class Exercises {
 	 hasBad("xbadxx") → true
 	 hasBad("xxbadxx") → false
 	 */
-		public static boolean hasBad (String str){
+	public boolean hasBad(String str) {
+			if (str.length() >= 3 && str.substring(0,3).equals("bad")) {
+				return true;
+			}
+			if (str.length() >= 4 && str.substring(1,4).equals("bad"))  {
+				return true;
+			}
 			return false;
 		}
 
@@ -330,9 +301,9 @@ public class Exercises {
 	 stringTimes("Hi", 3) → "HiHiHi"
 	 stringTimes("Hi", 1) → "Hi"
 	 */
-		public static String stringTimes (String str,int n){
-			return "";
-		}
+	public String stringTimes(String str, int n) {
+		return str;
+	}
 
 	/*
 	 Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or
@@ -341,9 +312,35 @@ public class Exercises {
 	 frontTimes("Chocolate", 3) → "ChoChoCho"
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
-		public static String frontTimes (String str,int n){
-			return "";
+	public String frontTimes(String str, int n) {
+
+		int length = str.length();
+
+		String temp = "";
+
+		if (length < 4) {
+			for (int i = 0; i < n; i++) {
+
+				temp += str;
+
+			}
+
+		} else {
+
+			for (int j = 0; j < n; j++) {
+
+				temp += str.substring(0,3);
+
+			}
+
 		}
+
+
+
+		return temp;
+
+	}
+
 
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
@@ -351,9 +348,9 @@ public class Exercises {
 	 countXX("xxx") → 2
 	 countXX("xxxx") →
 	 */
-		public static int countXX (String str){
-			return 0;
-		}
+	public int countXX(String str) {
+		return 0;
+	}
 
 	/*
 	 Given a string, return true if the first instance of "x" in the string is immediately followed by another "x".
@@ -361,9 +358,16 @@ public class Exercises {
 	 doubleX("axaxax") → false
 	 doubleX("xxxxx") → true
 	 */
-		public static boolean doubleX (String str){
-			return false;
-		}
+	boolean doubleX(String str) {
+		int i = str.indexOf("x");
+
+		if (i == -1) return false;
+
+		if (i+1 >= str.length()) return false;
+
+		return str.substring(i+1, i+2).equals("x");
+
+	}
 
 	/*
 	 Given a string, return a new string made of every other char starting with the first, so "Hello" yields "Hlo".
@@ -371,9 +375,23 @@ public class Exercises {
 	 stringBits("Hi") → "H"
 	 stringBits("Heeololeo") → "Hello"
 	 */
-		public static String stringBits (String str){
-			return "";
+	public String stringBits(String str) {
+
+		int length = str.length();
+
+		String idk = "";
+
+		for (int i = 0; i < length; i = i + 2) {
+
+			idk += str.charAt(i);
+
 		}
+
+		return idk;
+
+	}
+
+
 
 	/*
 	 Given a non-empty string like "Code" return a string like "CCoCodCode".
@@ -381,10 +399,17 @@ public class Exercises {
 	 stringSplosion("abc") → "aababc"
 	 stringSplosion("ab") → "aab"
 	 */
-		public static String stringSplosion (String str){
-			return "";
-		}
+		public String stringSplosion(String str) {
+		//declare string answer to method
 
+				String answer = "";
+				for (int i=0; i<str.length(); i++) {
+
+				// add loop result to initial declared string idk
+			answer = answer + str.substring(0, i+1);
+				}
+				return answer;
+			}
 	/*
 	 Given a string, return the count of the number of times that a substring length 2 appears in the string and
 	 also as the last 2 chars of the string, so "hixxxhi" yields 1 (we won't count the end substring).
@@ -392,9 +417,9 @@ public class Exercises {
 	 last2("xaxxaxaxx") → 1
 	 last2("axxxaaxx") → 2
 	 */
-		public static int last2 (String str){
-			return 0;
-		}
+	public int last2(String str) {
+		return 0;
+	}
 
 	/*
 	 Given a string, return a version where all the "x" have been removed. Except an "x" at the very start or end
@@ -403,9 +428,9 @@ public class Exercises {
 	 stringX("abxxxcd") → "abcd"
 	 stringX("xabxxxcdx") → "xabcdx"
 	 */
-		public static String stringX (String str){
-			return "";
-		}
+	public String stringX(String str) {
+		return null;
+	}
 
 	/*
 	 Given a string, return a string made of the chars at indexes 0,1, 4,5, 8,9 ... so "kittens" yields "kien".
@@ -413,9 +438,25 @@ public class Exercises {
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
-		public static String altPairs (String str){
-			return "";
+		public String altPairs(String str) {
+			String answer = "";
+
+			for (int i=0; i<str.length(); i += 4) {
+
+				int end = i + 2;
+
+				if (end > str.length()) {
+
+					end = str.length();
+				}
+				answer = answer + str.substring(i, end);
+
+			}
+			return answer;
+
 		}
+
+
 
 	/*
 	 Suppose the string "yak" is unlucky. Given a string, return a version where all the "yak" are removed.
@@ -424,8 +465,14 @@ public class Exercises {
 	 stringYak("pakyak") → "pak"
 	 stringYak("yak123ya") → "123ya"
 	 */
-		public static String stringYak (String str){
-			return "";
+	public String stringYak(String str) {
+			if(str.contains("yak")){
+				return str.replace("yak","");
+			}
+			return str;
 		}
 
 }
+
+
+
