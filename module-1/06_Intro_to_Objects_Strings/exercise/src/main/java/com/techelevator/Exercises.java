@@ -35,8 +35,14 @@ public class Exercises {
 	 makeTags("cite", "Yay") → "<cite>Yay</cite>"
 	 */
 	public String makeTags(String tag, String word) {
-		return ("<"tag">" + word + "</"tag">");
+
+		String starttag = "<" + tag + ">";
+		String endtag = "</" + tag + ">";
+		String str = starttag + word + endtag;
+		return str;
+
 	}
+
 
 	/*
 	 Given an "out" string length 4, such as "<<>>", and a word, return a new string where the word is in the
@@ -46,8 +52,8 @@ public class Exercises {
 	 makeOutWord("<<>>", "WooHoo") → "<<WooHoo>>"
 	 makeOutWord("[[]]", "word") → "[[word]]"
 	 */
-	public String makeOutWord(String out, String word){
-		return out.substring(0,2) + word + out.substring(2);
+	public String makeOutWord(String out, String word) {
+		return out.substring(0, 2) + word + out.substring(2);
 	}
 
 
@@ -59,11 +65,9 @@ public class Exercises {
 	 extraEnd("Hi") → "HiHiHi"
 	 */
 	public String extraEnd(String str) {
-		if (str.length() <= 2)
-			return str + str + str;
-		return str.substring(0,2) + str.substring(0,2) + str.substring(0,2);
+		String str2 = str.substring(str.length()-2);
+		return str2 + str2 + str2;
 	}
-
 	/*
 	 Given a string, return the string made of its first two chars, so the String "Hello" yields "He". If the
 	 string is shorter than length 2, return whatever there is, so "X" yields "X", and the empty string ""
@@ -77,8 +81,8 @@ public class Exercises {
 			return str;
 		}
 		{
-		return str.substring(0, 2);
-	}
+			return str.substring(0, 2);
+		}
 	}
 
 	/*
@@ -90,9 +94,10 @@ public class Exercises {
 	public String firstHalf(String str) {
 		int stringHalf = str.length() / 2;
 		{
-			return str.substring(0, half);
+			return str.substring(0, stringHalf);
 		}
 	}
+
 	/*
 	 Given a string, return a version without the first and last char, so "Hello" yields "ell".
 	 The string length will be at least 2.
@@ -120,6 +125,7 @@ public class Exercises {
 			return a + b + a;
 		}
 	}
+
 	/*
 	 Given 2 strings, return their concatenation, except omit the first char of each. The strings will
 	 be at least length 1.
@@ -130,7 +136,6 @@ public class Exercises {
 	public String nonStart(String a, String b) {
 		return a.substring(1) + b.substring(1);
 	}
-
 
 
 	/*
@@ -160,6 +165,7 @@ public class Exercises {
 
 		}
 	}
+
 	/*
 	 Given a string, return a string length 1 from its front, unless front is false, in which case
 	 return a string length 1 from its back. The string will be non-empty.
@@ -168,7 +174,7 @@ public class Exercises {
 	 theEnd("oh", true) → "o"
 	 */
 	public String theEnd(String str, boolean front) {
-		if (front){
+		if (front) {
 
 			return str.substring(0, 1);
 		}
@@ -178,6 +184,7 @@ public class Exercises {
 
 		}
 	}
+
 	/*
 	 Given a string, return a version without both the first and last char of the string. The string
 	 may be any length, including 0.
@@ -190,9 +197,9 @@ public class Exercises {
 			return str.substring(1, str.length() - 1);
 		}
 		{
-		return "";
+			return "";
 
-	}
+		}
 	}
 
 
@@ -202,7 +209,7 @@ public class Exercises {
 	 middleTwo("string") → "ri"
 	 middleTwo("code") → "od"
 	 middleTwo("Practice") → "ct"
-	 */
+	 /*/
 	public String middleTwo(String str) {
 		int length = str.length();
 		return str.substring(length / 2 - 1, length / 2 + 1);
@@ -234,6 +241,7 @@ public class Exercises {
 	 nTwice("Chocolate", 1) → "Ce"
 	 */
 	public String nTwice(String str, int n) {
+
 		return str.substring(0, n) + str.substring(str.length() - n);
 	}
 
@@ -246,6 +254,9 @@ public class Exercises {
 	 twoChar("java", 3) → "ja"
 	 */
 	public String twoChar(String str, int n) {
+		return str;
+	}
+
 
 
 	/*
@@ -255,15 +266,17 @@ public class Exercises {
 	 middleThree("and") → "and"
 	 middleThree("solving") → "lvi"
 	 */
-	public String middleThree(String str){
-			int length = str.length();
-			if (length >= 3) {
-				return str;
-			}
+	public String middleThree(String str) {
+		int length = str.length();
+		if (length >= 3) {
+			return str;
+		}
 			{
+
 				return str.substring(length / 2 - 1, length / 2 + 2);
 			}
 		}
+
 	/*
 	 Given a string, return true if "bad" appears starting at index 0 or 1 in the string, such as with
 	 "badxxx" or "xbadxx" but not "xxbadxx". The string may be any length, including 0. Note: use .equals()
@@ -289,6 +302,8 @@ public class Exercises {
 	 stringTimes("Hi", 1) → "Hi"
 	 */
 	public String stringTimes(String str, int n) {
+		return str;
+	}
 
 	/*
 	 Given a string and a non-negative int n, we'll say that the front of the string is the first 3 chars, or
@@ -298,8 +313,34 @@ public class Exercises {
 	 frontTimes("Abc", 3) → "AbcAbcAbc"
 	 */
 	public String frontTimes(String str, int n) {
-		return null;
+
+		int length = str.length();
+
+		String temp = "";
+
+		if (length < 4) {
+			for (int i = 0; i < n; i++) {
+
+				temp += str;
+
+			}
+
+		} else {
+
+			for (int j = 0; j < n; j++) {
+
+				temp += str.substring(0,3);
+
+			}
+
+		}
+
+
+
+		return temp;
+
 	}
+
 
 	/*
 	 Count the number of "xx" in the given string. We'll say that overlapping is allowed, so "xxx" contains 2 "xx".
@@ -317,8 +358,15 @@ public class Exercises {
 	 doubleX("axaxax") → false
 	 doubleX("xxxxx") → true
 	 */
-	public boolean doubleX(String str) {
-		return false;
+	boolean doubleX(String str) {
+		int i = str.indexOf("x");
+
+		if (i == -1) return false;
+
+		if (i+1 >= str.length()) return false;
+
+		return str.substring(i+1, i+2).equals("x");
+
 	}
 
 	/*
@@ -328,8 +376,22 @@ public class Exercises {
 	 stringBits("Heeololeo") → "Hello"
 	 */
 	public String stringBits(String str) {
-		return null;
+
+		int length = str.length();
+
+		String idk = "";
+
+		for (int i = 0; i < length; i = i + 2) {
+
+			idk += str.charAt(i);
+
+		}
+
+		return idk;
+
 	}
+
+
 
 	/*
 	 Given a non-empty string like "Code" return a string like "CCoCodCode".
@@ -337,14 +399,14 @@ public class Exercises {
 	 stringSplosion("abc") → "aababc"
 	 stringSplosion("ab") → "aab"
 	 */
-	public String stringSplosion(String str) {
+		public String stringSplosion(String str) {
 		//declare string answer to method
 
 				String answer = "";
 				for (int i=0; i<str.length(); i++) {
-				}
+
 				// add loop result to initial declared string idk
-				answer = answer + str.substring(0, i+1);
+			answer = answer + str.substring(0, i+1);
 				}
 				return answer;
 			}
@@ -376,14 +438,24 @@ public class Exercises {
 	 altPairs("Chocolate") → "Chole"
 	 altPairs("CodingHorror") → "Congrr"
 	 */
-	public String altPairs(String str) {
+		public String altPairs(String str) {
 			String answer = "";
 
-			for(int i = 0; i < str.length(); i++){
-				if(i % 4 == 0 && i % 4 == 1)  str.length(i);
+			for (int i=0; i<str.length(); i += 4) {
+
+				int end = i + 2;
+
+				if (end > str.length()) {
+
+					end = str.length();
+				}
+				answer = answer + str.substring(i, end);
+
 			}
 			return answer;
+
 		}
+
 
 
 	/*
@@ -401,3 +473,6 @@ public class Exercises {
 		}
 
 }
+
+
+

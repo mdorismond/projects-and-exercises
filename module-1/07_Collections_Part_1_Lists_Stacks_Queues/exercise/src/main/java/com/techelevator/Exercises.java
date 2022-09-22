@@ -93,9 +93,32 @@ public class Exercises {
 
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
-	public List<String> fizzBuzzList(Integer[] integerArray) {
-		return null;
+	public static List<String> fizzBuzzList(Integer[] integerArray) {
+		List<String> retString = new ArrayList<>();
+		boolean m3 = false;  //for checking multiple of 3
+		boolean m5 = false;  //for checking  multiple of 5
+
+		for (Integer currInt : integerArray) {
+			if (currInt % 3 == 0){ m3 = true; }
+			else { m3= false; }
+			if (currInt % 5 == 0 ){  	m5 = true;
+			} else { m5 = false; }
+			// you can simplify the above statement if you want
+
+			if (m3 && m5) {
+				retString.add(new String("FizzBuzz"));
+			} else if (m3) {
+				retString.add(new String("Fizz"));
+			} else if (m5) {
+				retString .add(new String("Buzz"));
+			} else {
+				retString .add(currInt.toString());
+			}
+		}
+		return retString;
 	}
+
+
 
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
@@ -104,8 +127,41 @@ public class Exercises {
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
-		return null;
+	public static List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+
+		//int minListLength = Math.min(listOne.size(), listTwo.size());
+		int minListLength ;
+		boolean listOneBigger = false;
+		if (listOne.size() > listTwo.size()){
+			minListLength = listTwo.size();
+			listOneBigger = true;
+		} else {
+			minListLength = listOne.size();
+		}
+
+		List<Integer> output = new ArrayList<>();
+
+		for (int i = 0; i < minListLength; i++) {
+			output.add(listOne.get(i));
+			output.add(listTwo.get(i));
+		}
+
+		// Add remainder Logic
+		List<Integer> longerList;
+		if (listOneBigger) {
+			longerList = listOne;
+		} else {
+			longerList = listTwo;
+		}
+
+		for (int i = minListLength; i < longerList.size(); i++) {
+			output.add(longerList.get(i));
+		}
+
+		return output;
 	}
+
+
+
 
 }
