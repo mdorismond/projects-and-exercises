@@ -1,7 +1,6 @@
 package com.techelevator;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 
 public class Exercises {
@@ -17,13 +16,11 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		String[] arrayList = {"Apple", "Orange", "Banana"};
-		List<String> array2List = Arrays.asList(arrayList);
-		{
-			return Arrays.asList(stringArray);
+		List<String> stringList = new ArrayList<>();
+		for (int i = 0; i < stringArray.length; i++) {
+			stringList.add(stringArray[i]);
 		}
-
-
+		return stringList;
 	}
 
 	/*
@@ -33,15 +30,11 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-
-		String[] arrayOfStrings = new String[(stringList.size())];
-
+		String[] stringArray = new String[stringList.size()];
 		for (int i = 0; i < stringList.size(); i++) {
-			arrayOfStrings[i] = stringList.get(i);
-			System.out.println(arrayOfStrings[i]);
+			stringArray[i] = stringList.get(i);
 		}
-
-		return arrayOfStrings;
+		return stringArray;
 	}
 
 	/*
@@ -51,29 +44,15 @@ public class Exercises {
 	 no4LetterWords( {"Red", "White", "Blue"} )  ->  ["Red", "White"]
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
-	//I got help online with this problem, I was confused
-
 	public List<String> no4LetterWords(String[] stringArray) {
-
-		List<String> listOfStrings = new ArrayList<String>();
-
-		if(stringArray.length > 0) {
-
-			for(int i = 0; i < stringArray.length; i++) {
-
-				String item = stringArray[i];
-
-				//length of string must not be 4,if this is the case add it to arraylist
-				if(item.length() != 4) {
-					listOfStrings.add(item);
-				}
+		List<String> no4LetterWordList = new ArrayList<>();
+		for (int i = 0; i < stringArray.length; i++) {
+			if (stringArray[i].length() != 4) {
+				no4LetterWordList.add(stringArray[i]);
 			}
 		}
-
-		return listOfStrings;
+		return no4LetterWordList;
 	}
-
-//}
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -81,18 +60,13 @@ public class Exercises {
 	 arrayInt2ListDouble( {745, 23, 44, 9017, 6} ) -> [372.5, 11.5, 22, 4508.5, 3]
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
-	public List<Double> arrayInt2ListDouble(int[] intArray){
-		List<Double> arrOfDoubles = new ArrayList<Double>();
-	double double1;
-		if(intArray.length > 0) {
-		for(int i = 0; i < intArray.length; i++) {
-			double1 = intArray[i] / 2.0;
-			arrOfDoubles.add(double1);
+	public List<Double> arrayInt2ListDouble(int[] intArray) {
+		List<Double> doubleList = new ArrayList<>();
+		for (int i = 0; i < intArray.length; i++) {
+			doubleList.add(intArray[i] / 2.0);
 		}
+		return doubleList;
 	}
-		return arrOfDoubles;
-}
-
 
 	/*
 	 Given a List of Integers, return the largest value.
@@ -101,15 +75,16 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		int largest = integerList.get(0);
-
-		for(int i = 0; i < integerList.size(); i++) {
-			if(integerList.get(i) > largest) {
-				largest = integerList.get(i);
+		int largestInt = 0;
+		for (Integer currentInteger : integerList) {
+			if (currentInteger > largestInt) {
+				largestInt = currentInteger;
 			}
 		}
-		return largest;
+		return largestInt;
+		//return Integer.valueOf(largestInt);
 	}
+
 	/*
 	 Given an array of Integers, return a List of Integers containing just the odd values.
 	 oddOnly( {112, 201, 774, 92, 9, 83, 41872} ) -> [201, 9, 83]
@@ -117,14 +92,13 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		List<Integer> listOfIntegers = new ArrayList<Integer>();
-
-		for(int i = 0; i < integerArray.length; i++) {
-			if(integerArray[i] % 2 == 1) {
-				listOfIntegers.add(integerArray[i]);
+		List<Integer> oddOnlyList = new ArrayList<>();
+		for (Integer currentInteger : integerArray) {
+			if (currentInteger % 2 != 0) {
+				oddOnlyList.add(currentInteger);
 			}
 		}
-		return listOfIntegers;
+		return oddOnlyList;
 	}
 
 	/*
@@ -135,16 +109,14 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
-		int counter = 0;
-
-		for(int i = 0; i < integerList.size(); i++) {
-
-			if(integerList.get(i) == intToFind) {
-				counter++;
-				if(counter >= 2) {
-
+		int foundCount = 0;
+		for (Integer currentInteger : integerList) {
+			if (currentInteger == intToFind) {
+				if (foundCount >= 1) {
+					//No point continuing, we just found the second occurrence.
 					return true;
 				}
+				foundCount++;
 			}
 		}
 		return false;
@@ -162,32 +134,50 @@ public class Exercises {
 
 	HINT: To convert an Integer x to a String, you can use x.toString() in your code. For example, if x = 1, then x.toString() returns "1."
 	 */
-	public static List<String> fizzBuzzList(Integer[] integerArray) {
-		List<String> retString = new ArrayList<>();
-		boolean m3 = false;  //for checking multiple of 3
-		boolean m5 = false;  //for checking  multiple of 5
+	//public List<String> fizzBuzzList(Integer[] integerArray) {
+		public static List<String> fizzBuzzList(Integer[] integerArray) {
+			List<String> retString = new ArrayList<>();
+			boolean m3 = false;  //for checking multiple of 3
+			boolean m5 = false;  //for checking  multiple of 5
 
-		for (Integer currInt : integerArray) {
-			if (currInt % 3 == 0){ m3 = true; }
-			else { m3= false; }
-			if (currInt % 5 == 0 ){  	m5 = true;
-			} else { m5 = false; }
-			// you can simplify the above statement if you want
+			for (Integer currInt : integerArray) {
+				if (currInt % 3 == 0){ m3 = true; }
+				else { m3= false; }
+				if (currInt % 5 == 0 ){  	m5 = true;
+				} else { m5 = false; }
+				// you can simplify the above statement if you want
 
-			if (m3 && m5) {
-				retString.add(new String("FizzBuzz"));
-			} else if (m3) {
-				retString.add(new String("Fizz"));
-			} else if (m5) {
-				retString .add(new String("Buzz"));
-			} else {
-				retString .add(currInt.toString());
+				if (m3 && m5) {
+					retString.add(new String("FizzBuzz"));
+				} else if (m3) {
+					retString.add(new String("Fizz"));
+				} else if (m5) {
+					retString .add(new String("Buzz"));
+				} else {
+					retString .add(currInt.toString());
+				}
 			}
+			return retString;
 		}
-		return retString;
-	}
 
-
+//		List<String> stringList = new ArrayList<>();
+//		boolean multipleOfThree;
+//		boolean multipleOfFive;
+//		for (Integer currentInteger : integerArray) {
+//			multipleOfThree = currentInteger % 3 == 0;
+//			multipleOfFive = currentInteger % 5 == 0;
+//			if (multipleOfThree && multipleOfFive) {
+//				stringList.add(new String("FizzBuzz"));
+//			} else if (multipleOfThree) {
+//				stringList.add(new String("Fizz"));
+//			} else if (multipleOfFive) {
+//				stringList.add(new String("Buzz"));
+//			} else {
+//				stringList.add(currentInteger.toString());
+//			}
+//		}
+//		return stringList;
+//	}
 
 	/*
 	 Given two lists of Integers, interleave them beginning with the first element in the first list followed
@@ -196,41 +186,60 @@ public class Exercises {
 	 list to the new list before returning it.
 	 interleaveLists( [1, 2, 3], [4, 5, 6] )  ->  [1, 4, 2, 5, 3, 6]
 	 */
-	public static List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+	//public List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
+		public static List<Integer> interleaveLists(List<Integer> listOne, List<Integer> listTwo) {
 
-		//int minListLength = Math.min(listOne.size(), listTwo.size());
-		int minListLength ;
-		boolean listOneBigger = false;
-		if (listOne.size() > listTwo.size()){
-			minListLength = listTwo.size();
-			listOneBigger = true;
-		} else {
-			minListLength = listOne.size();
+			//int minListLength = Math.min(listOne.size(), listTwo.size());
+			int minListLength ;
+			boolean listOneBigger = false;
+			if (listOne.size() > listTwo.size()){
+				minListLength = listTwo.size();
+				listOneBigger = true;
+			} else {
+				minListLength = listOne.size();
+			}
+
+			List<Integer> output = new ArrayList<>();
+
+			for (int i = 0; i < minListLength; i++) {
+				output.add(listOne.get(i));
+				output.add(listTwo.get(i));
+			}
+
+			// Add remainder Logic
+			List<Integer> longerList;
+			if (listOneBigger) {
+				longerList = listOne;
+			} else {
+				longerList = listTwo;
+			}
+
+			for (int i = minListLength; i < longerList.size(); i++) {
+				output.add(longerList.get(i));
+			}
+
+			return output;
 		}
 
-		List<Integer> output = new ArrayList<>();
-
-		for (int i = 0; i < minListLength; i++) {
-			output.add(listOne.get(i));
-			output.add(listTwo.get(i));
-		}
-
-		// Add remainder Logic
-		List<Integer> longerList;
-		if (listOneBigger) {
-			longerList = listOne;
-		} else {
-			longerList = listTwo;
-		}
-
-		for (int i = minListLength; i < longerList.size(); i++) {
-			output.add(longerList.get(i));
-		}
-
-		return output;
-	}
 
 
 
+
+//		int minListLength = Math.min(listOne.size(), listTwo.size());
+//		List<Integer> output = new ArrayList<>();
+//
+//		for (int i = 0; i < minListLength; i++) {
+//			output.add(listOne.get(i));
+//			output.add(listTwo.get(i));
+//		}
+//
+//		// Add remainder Logic
+//		List<Integer> longerList = (listOne.size() > listTwo.size()) ? listOne : listTwo;
+//		for (int i = minListLength; i < longerList.size(); i++) {
+//			output.add(longerList.get(i));
+//		}
+//
+//		return output;
+//	}
 
 }
