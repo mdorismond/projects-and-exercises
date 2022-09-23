@@ -1,6 +1,7 @@
 package com.techelevator;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.List;
 
 public class Exercises {
@@ -16,7 +17,13 @@ public class Exercises {
 	 array2List( {"Left", "Right", "Forward", "Back"} )  ->  ["Left", "Right", "Forward", "Back"]
 	 */
 	public List<String> array2List(String[] stringArray) {
-		return null;
+		String[] arrayList = {"Apple", "Orange", "Banana"};
+		List<String> array2List = Arrays.asList(arrayList);
+		{
+			return Arrays.asList(stringArray);
+		}
+
+
 	}
 
 	/*
@@ -26,7 +33,15 @@ public class Exercises {
 	 list2Array( ["Left", "Right", "Forward", "Back"] )  ->  {"Left", "Right", "Forward", "Back"}
 	 */
 	public String[] list2Array(List<String> stringList) {
-		return null;
+
+		String[] arrayOfStrings = new String[(stringList.size())];
+
+		for (int i = 0; i < stringList.size(); i++) {
+			arrayOfStrings[i] = stringList.get(i);
+			System.out.println(arrayOfStrings[i]);
+		}
+
+		return arrayOfStrings;
 	}
 
 	/*
@@ -36,9 +51,29 @@ public class Exercises {
 	 no4LetterWords( {"Red", "White", "Blue"} )  ->  ["Red", "White"]
 	 no4LetterWords( {"Jack", "Jill", "Jane", "John", "Jim"} )  ->  ["Jim"]
 	 */
+	//I got help online with this problem, I was confused
+
 	public List<String> no4LetterWords(String[] stringArray) {
-		return null;
+
+		List<String> listOfStrings = new ArrayList<String>();
+
+		if(stringArray.length > 0) {
+
+			for(int i = 0; i < stringArray.length; i++) {
+
+				String item = stringArray[i];
+
+				//length of string must not be 4,if this is the case add it to arraylist
+				if(item.length() != 4) {
+					listOfStrings.add(item);
+				}
+			}
+		}
+
+		return listOfStrings;
 	}
+
+//}
 
 	/*
 	 Given an array of ints, divide each int by 2, and return an ArrayList of Doubles.
@@ -46,9 +81,18 @@ public class Exercises {
 	 arrayInt2ListDouble( {745, 23, 44, 9017, 6} ) -> [372.5, 11.5, 22, 4508.5, 3]
 	 arrayInt2ListDouble( {84, 99, 3285, 13, 877} ) -> [42, 49.5, 1642.5, 6.5, 438.5]
 	 */
-	public List<Double> arrayInt2ListDouble(int[] intArray) {
-		return null;
+	public List<Double> arrayInt2ListDouble(int[] intArray){
+		List<Double> arrOfDoubles = new ArrayList<Double>();
+	double double1;
+		if(intArray.length > 0) {
+		for(int i = 0; i < intArray.length; i++) {
+			double1 = intArray[i] / 2.0;
+			arrOfDoubles.add(double1);
+		}
 	}
+		return arrOfDoubles;
+}
+
 
 	/*
 	 Given a List of Integers, return the largest value.
@@ -57,9 +101,15 @@ public class Exercises {
 	 findLargest( [34070, 1380, 81238, 7782, 234, 64362, 627] ) -> 81238
 	 */
 	public Integer findLargest(List<Integer> integerList) {
-		return null;
-	}
+		int largest = integerList.get(0);
 
+		for(int i = 0; i < integerList.size(); i++) {
+			if(integerList.get(i) > largest) {
+				largest = integerList.get(i);
+			}
+		}
+		return largest;
+	}
 	/*
 	 Given an array of Integers, return a List of Integers containing just the odd values.
 	 oddOnly( {112, 201, 774, 92, 9, 83, 41872} ) -> [201, 9, 83]
@@ -67,7 +117,14 @@ public class Exercises {
 	 oddOnly( {734, 233, 782, 811, 3, 9999} ) -> [233, 811, 3, 9999]
 	 */
 	public List<Integer> oddOnly(Integer[] integerArray) {
-		return null;
+		List<Integer> listOfIntegers = new ArrayList<Integer>();
+
+		for(int i = 0; i < integerArray.length; i++) {
+			if(integerArray[i] % 2 == 1) {
+				listOfIntegers.add(integerArray[i]);
+			}
+		}
+		return listOfIntegers;
 	}
 
 	/*
@@ -78,6 +135,18 @@ public class Exercises {
 	 foundIntTwice( [9, 9, 44, 2, 88, 9], 9) -> true
 	 */
 	public boolean foundIntTwice(List<Integer> integerList, int intToFind) {
+		int counter = 0;
+
+		for(int i = 0; i < integerList.size(); i++) {
+
+			if(integerList.get(i) == intToFind) {
+				counter++;
+				if(counter >= 2) {
+
+					return true;
+				}
+			}
+		}
 		return false;
 	}
 
