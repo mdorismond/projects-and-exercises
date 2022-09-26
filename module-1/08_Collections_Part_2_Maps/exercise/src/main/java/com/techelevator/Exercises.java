@@ -84,6 +84,7 @@ public class Exercises {
 	 * isItOnSale("dungeon9999") → 0.00
 	 *
 	 */
+	//comment
 	public double isItOnSale(String itemNumber) {
 		Map<String, Double> sales = new HashMap<String, Double>();
 		sales.put("KITCHEN4001", 0.20);
