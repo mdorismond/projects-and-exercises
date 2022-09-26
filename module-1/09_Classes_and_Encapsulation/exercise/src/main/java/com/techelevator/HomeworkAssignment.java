@@ -33,11 +33,11 @@ public class HomeworkAssignment {
 
     public String letterGrade() {
         double percentage = (double) earnedMarks / possibleMarks;
-        if (percentage >= 0.91) {
+        if (percentage >= 0.9) {
             return "A";
-        } else if (percentage >= 0.8) {
+        } else if (percentage <= 0.89) {
             return "B";
-        } else if (percentage >= 0.7) {
+        } else if (percentage <= 0.79) {
             return "C";
         } else if (percentage >= 0.6) {
             return "D";

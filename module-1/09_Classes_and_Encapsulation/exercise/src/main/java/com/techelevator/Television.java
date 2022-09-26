@@ -7,15 +7,15 @@ public class Television {
         private int currentVolume = 2;
 
         public boolean isOn() {
-            return true;   //getter
+            return isOn;   //getter
         }
 
         public int getCurrentChannel() {
-            return 3;  //getter
+            return currentChannel;  //getter
         }
 
         public int getCurrentVolume() {
-            return 2;  //getter
+            return currentVolume;  //getter
         }
 
         public void turnOn() {
