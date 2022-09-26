@@ -9,6 +9,7 @@ public class Auction {
 	private Bid currentHighBid;
 	private List<Bid> allBids;
 
+	//Overloading constructors//Overriding
 	public Auction(String itemForSale) {
 		this.itemForSale = itemForSale;
 		this.currentHighBid = new Bid("", 0);
