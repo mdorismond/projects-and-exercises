@@ -1,23 +1,21 @@
 package com.techelevator;
 
 public class Television {
-    Television:
-    public class Television {
 
         private boolean isOn = false;;
         private int currentChannel = 3;
         private int currentVolume = 2;
 
         public boolean isOn() {
-            return ….   //getter
+            return true;   //getter
         }
 
         public int getCurrentChannel() {
-            return …..  //getter
+            return 3;  //getter
         }
 
         public int getCurrentVolume() {
-            return ….  //getter
+            return 2;  //getter
         }
 
         public void turnOn() {
@@ -51,7 +49,7 @@ public class Television {
                 if (currentChannel == 3) {
                     currentChannel = 18;
                 } else {
-                    Your code…
+                 currentChannel--;
                 }
             }
         }
@@ -64,11 +62,12 @@ public class Television {
 
         public void lowerVolume() {
             if (isOn && currentVolume > 0) {
-                Your code….
+                currentVolume--;
             }
         }
 
     }
 
 
-}
+
+
