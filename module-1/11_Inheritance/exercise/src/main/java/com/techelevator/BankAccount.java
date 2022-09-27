@@ -43,5 +43,4 @@ public class BankAccount {
         balance = balance - amountToWithdraw;
         return balance;
     }
-
 }

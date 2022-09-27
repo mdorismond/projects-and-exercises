@@ -1,6 +1,6 @@
 package com.techelevator;
 
-public class SavingsAccount extends BankAccount{
+public class SavingsAccount extends BankAccount {
 
     public SavingsAccount(String accountHolderName, String accountNumber) {
         super(accountHolderName, accountNumber);
@@ -11,13 +11,14 @@ public class SavingsAccount extends BankAccount{
     }
 
     @Override
-    public int withdraw(int amountToWithdraw){
-        if(amountToWithdraw <= getBalance()){
+    public int withdraw(int amountToWithdraw) {
+        if (amountToWithdraw <= getBalance()) {
             super.withdraw(amountToWithdraw);
 
-            if(getBalance() < 150)
+            if (getBalance() - amountToWithdraw < 150)
                 super.withdraw(2);
         }
         return getBalance();
     }
+
 }
