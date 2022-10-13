@@ -2,3 +2,6 @@
 -- Order the results by state abbreviation.
 -- (55 rows)
 
+SELECT COUNT(city_name) AS num_cities, state_abbreviation
+FROM city
+WHERE
