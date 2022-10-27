@@ -11,11 +11,19 @@ public class HotelService {
     private final RestTemplate restTemplate = new RestTemplate();
 
     public Hotel[] listHotels() {
-        return null;
+
+        //String response = restTemplate.getForObject(endpointUrl, String.class);
+
+        return restTemplate.getForObject(API_BASE_URL + "hotels", Hotel[].class);
+        //return null;
     }
 
     public Review[] listReviews() {
-        return null;
+
+        return restTemplate.getForObject(API_BASE_URL + "reviews" , Review[].class);
+
+
+        //return null;
     }
 
     public Hotel getHotelById(int id) {
@@ -31,6 +39,9 @@ public class HotelService {
     }
 
     public City getWithCustomQuery(){
+
+        return restTemplate.getForObject((""))
+
         return null;
     }
 

@@ -14,6 +14,7 @@ public class JdbcDepartmentDao implements DepartmentDao {
 
 	private final JdbcTemplate jdbcTemplate;
 
+
 	public JdbcDepartmentDao(DataSource dataSource) {
 		this.jdbcTemplate = new JdbcTemplate(dataSource);
 	}

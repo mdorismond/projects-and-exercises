@@ -12,12 +12,14 @@ public class AuctionService {
 
     public Auction[] getAllAuctions() {
         // call api here
-        return null;
+
+        return restTemplate.getForObject(API_BASE_URL , Auction[].class);
+
     }
 
     public Auction getAuction(int id) {
         // call api here
-        return null;
+        return restTemplate.getForObject(API_BASE_URL + id, Auction.class);
     }
 
     public Auction[] getAuctionsMatchingTitle(String title) {
