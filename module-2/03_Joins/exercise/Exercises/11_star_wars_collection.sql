@@ -3,5 +3,6 @@
 
 SELECT title
 FROM movie
-JOIN movie ON collection
-WHERE title LIKE ('Star Wars Collection')
+JOIN collection ON collection.collection_id = movie.collection_id
+WHERE collection_name = 'Star Wars Collection'
+ORDER BY release_date DESC
