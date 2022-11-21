@@ -24,6 +24,18 @@
         </td>
       </tr>
       <!-- user listing goes here -->
+      <tr v-for="(user, index) in filteredList" :key="index" >
+      <td>{{ user.firstName }}</td>
+        <td>{{ user.lastName }}</td>
+        <td>{{ user.username }}</td>
+        <td>{{ user.emailAddress }}</td>
+        <td>{{ user.status }}</td>
+      </tr>
+
+
+    
+    
+    
     </tbody>
   </table>
 </template>
@@ -42,6 +54,21 @@ export default {
         { firstName: 'Mark', lastName: 'Smith', username: 'msmith', emailAddress: 'msmith@foo.com', status: 'Inactive' }
       ]
     }
+  },
+  computed: {
+    filteredList() {
+       let filteredUsers = this.users;
+       if( this.search.firstName != "" ) {
+        filteredUsers = filteredUsers.filter(user => user.firstName.toLowerCase().includes(this.search.firstName.toLowerCase()))
+      }
+
+
+
+       return filteredUsers;
+
+
+    }
+
   }
 }
 </script>

@@ -1,8 +1,7 @@
 <template>
   <div id="app">
-
-    <product-review></product-review>
     <!-- <img alt="Vue logo" src="./assets/logo.png" /> -->
+    <product-review></product-review>
     <!-- <HelloWorld msg="Welcome to Your Vue.js App" /> -->
   </div>
 </template>
@@ -16,9 +15,8 @@ export default {
   components: {
     // HelloWorld,
     ProductReview
-
   }
-}
+};
 </script>
 
 <style>
@@ -28,6 +26,7 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #2c3e50;
-  margin-top: 60px;
+  max-width: 800px;
+  margin: 60px auto 0 auto;
 }
 </style>
