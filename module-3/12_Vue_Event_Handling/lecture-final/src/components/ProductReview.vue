@@ -36,23 +36,26 @@
       </div>
     </div>
 
-    <a 
-     id="show-form-button"
-     href = "#"
-     v-on:click.prevent="showForm=true"
-     v-if="showForm===false"
-    >Show Form</a>
+    
+
+    <a
+      id="show-form-button"
+      href="#"
+      v-on:click.prevent="showForm = true"
+      v-if="showForm === false"
+      >Show Form</a
+    >
 
     <form v-on:submit.prevent="addNewReview" v-if="showForm === true">
-       <div class="form-element">
+      <div class="form-element">
         <label for="reviewer">Name:</label>
         <input id="reviewer" type="text" v-model="newReview.reviewer" />
       </div>
       <div class="form-element">
-        <label for="reviewer">Title:</label>
-        <input id="reviewer" type="text" v-model="newReview.title" />
+        <label for="title">Title:</label>
+        <input id="title" type="text" v-model="newReview.title" />
       </div>
-       <div class="form-element">
+      <div class="form-element">
         <label for="rating">Rating:</label>
         <select id="rating" v-model.number="newReview.rating">
           <option value="1">1 Star</option>
@@ -68,14 +71,8 @@
       </div>
       <input type="submit" value="Save">
       <input type="button" value="Cancel" v-on:click="resetForm">
+    </form>
 
-
-
-
-
-
-      </form>
-  
     <div
       class="review"
       v-bind:class="{ favorited: review.favorited }"
