@@ -38,17 +38,18 @@ width: 200px;
 }
 
 li {
+text-transform: uppercase;
 text-align: center;
-text-transform: capitalize;
-border: 3px;
+display: inline-block;
 border-color: rgba(0, 173, 238, 0.4);
+list-style-type: none;
 
 
 }
 
 a {
 font-weight: bold;
-color: rgba(0, 173, 238, 0.4);
+color: rgb(0, 173, 238);
 
 
 }
