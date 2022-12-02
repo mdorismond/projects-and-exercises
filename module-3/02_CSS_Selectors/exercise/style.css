@@ -15,3 +15,48 @@ ul {
   margin: 0;
   padding: 0;
 }
+
+aside {
+  width: 200px;
+  border: 3px;
+  border-color: rgba(0, 173, 238, 0.4);
+  position: fixed;
+ 
+
+}
+
+img {
+height: 120px;
+margin-left: auto;
+margin-right: auto;
+display: block;
+}
+
+main {
+width: 200px;
+
+}
+
+li {
+text-align: center;
+text-transform: capitalize;
+border: 3px;
+border-color: rgba(0, 173, 238, 0.4);
+
+
+}
+
+a {
+font-weight: bold;
+color: rgba(0, 173, 238, 0.4);
+
+
+}
+
+header {
+
+height: 100px;
+margin-bottom: 8px;
+
+
+}
