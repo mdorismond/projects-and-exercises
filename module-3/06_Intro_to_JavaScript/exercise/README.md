@@ -12,9 +12,14 @@ sumDouble(3, 2) → 5
 sumDouble(2, 2) → 8
 
 function sumDouble(x, y) {
-	// do logic here
-	// return result;
-	return x + y;
+	public int sumDouble(int x, int y) {
+
+  if (x == y)
+ return 2 * (x + y);
+
+  else
+
+   return x + y;
 }
 ```
 
