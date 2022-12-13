@@ -10,7 +10,15 @@
 
 <script>
 export default {
-    name: 'book-card'
+    name: 'book-card',
+    props: {
+        book: Object
+},
+methods: {
+    setRead(value) {
+        this.$store.commit('SET_READ_STATUS', {book: this.book, value: value});
+    }
+}
 }
 </script>
 
