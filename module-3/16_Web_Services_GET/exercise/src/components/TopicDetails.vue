@@ -26,6 +26,11 @@ export default {
     }
   }
 }
+axios.get(http://localhost:3000)
+.then((response) => {
+this.topic =response.data;
+this.isLoading = false;
+})
 </script>
 
 <style>

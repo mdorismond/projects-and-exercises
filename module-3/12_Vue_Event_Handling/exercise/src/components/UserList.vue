@@ -15,7 +15,7 @@
       <tbody>
         <tr>
           <td>
-            <input type="checkbox" id="selectAll" />
+            <input type="checkbox" id="selectAll" v-on:change="selectAll($event)" v-bind:checked="selectedUserIDs.length === users.length" />
           </td>
           <td>
             <input type="text" id="firstNameFilter" v-model="filter.firstName" />
@@ -44,7 +44,13 @@
           v-bind:class="{ disabled: user.status === 'Disabled' }"
         >
           <td>
-            <input type="checkbox" v-bind:id="user.id" v-bind:value="user.id" />
+            <input
+              type="checkbox"
+              v-bind:id="user.id"
+              v-bind:value="user.id"
+              v-on:change="selectUser($event)"
+              v-bind:checked="selectedUserIDs.includes(user.id)"
+            />
           </td>
           <td>{{ user.firstName }}</td>
           <td>{{ user.lastName }}</td>
@@ -52,36 +58,39 @@
           <td>{{ user.emailAddress }}</td>
           <td>{{ user.status }}</td>
           <td>
-            <button class="btnEnableDisable">Enable or Disable</button>
+            <button
+              class="btnEnableDisable"
+              v-on:click="flipStatus(user.id)"
+            >{{ user.status === 'Active' ? 'Disable' : 'Enable' }}</button>
           </td>
         </tr>
       </tbody>
     </table>
 
     <div class="all-actions">
-      <button>Enable Users</button>
-      <button>Disable Users</button>
-      <button>Delete Users</button>
+      <button v-on:click="enableSelectedUsers()" v-bind:disabled="actionButtonDisabled">Enable Users</button>
+      <button v-on:click="disableSelectedUsers()" v-bind:disabled="actionButtonDisabled">Disable Users</button>
+      <button v-on:click="deleteSelectedUsers()" v-bind:disabled="actionButtonDisabled">Delete Users</button>
     </div>
 
-    <button>Add New User</button>
+    <button v-on:click="showForm = !showForm">Add New User</button>
 
-    <form id="frmAddNewUser">
+    <form id="frmAddNewUser" v-show="showForm" v-on:submit.prevent="saveUser">
       <div class="field">
         <label for="firstName">First Name:</label>
-        <input type="text" name="firstName" />
+        <input type="text" name="firstName" v-model="newUser.firstName" />
       </div>
       <div class="field">
         <label for="lastName">Last Name:</label>
-        <input type="text" name="lastName" />
+        <input type="text" name="lastName" v-model="newUser.lastName" />
       </div>
       <div class="field">
         <label for="username">Username:</label>
-        <input type="text" name="username" />
+        <input type="text" name="username" v-model="newUser.username" />
       </div>
       <div class="field">
         <label for="emailAddress">Email Address:</label>
-        <input type="text" name="emailAddress" />
+        <input type="text" name="emailAddress" v-model="newUser.emailAddress" />
       </div>
       <button type="submit" class="btn save">Save User</button>
     </form>
@@ -100,6 +109,7 @@ export default {
         emailAddress: "",
         status: ""
       },
+      showForm: false,
       nextUserId: 7,
       newUser: {
         id: null,
@@ -109,6 +119,7 @@ export default {
         emailAddress: "",
         status: "Active"
       },
+      selectedUserIDs: [],
       users: [
         {
           id: 1,
@@ -164,6 +175,72 @@ export default {
   methods: {
     getNextUserId() {
       return this.nextUserId++;
+    },
+    saveUser() {
+      this.newUser.id = this.getNextUserId();
+      this.users.push(this.newUser);
+      this.clearNewUser();
+    },
+    clearNewUser() {
+      this.newUser = {
+        id: null,
+        firstName: "",
+        lastName: "",
+        username: "",
+        emailAddress: "",
+        status: "Active"
+      };
+    },
+    deleteUser(id) {
+      this.users = this.users.filter((user) => {
+        return user.id !== id;
+      });
+    },
+    flipStatus(id) {
+      const index = this.findUserById(id);
+      this.users[index].status =
+        this.users[index].status === "Active" ? "Disabled" : "Active";
+    },
+    selectUser(event) {
+      if (event.target.checked) {
+        this.selectedUserIDs.push(parseInt(event.target.id));
+      } else {
+        this.selectedUserIDs = this.selectedUserIDs.filter((user) => {
+          return user !== parseInt(event.target.id);
+        });
+      }
+    },
+    selectAll(event) {
+      if (event.target.checked) {
+        this.selectedUserIDs = []; //clear array of all selected users first
+        this.users.forEach((user) => this.selectedUserIDs.push(user.id));
+      } else {
+        this.selectedUserIDs = [];
+      }
+    },
+    enableSelectedUsers() {
+      this.selectedUserIDs.forEach((id) => {
+        this.users[this.findUserById(id)].status = "Active";
+      });
+      this.clearSelectedUsers();
+    },
+    disableSelectedUsers() {
+      this.selectedUserIDs.forEach((id) => {
+        this.users[this.findUserById(id)].status = "Disabled";
+      });
+      this.clearSelectedUsers();
+    },
+    deleteSelectedUsers() {
+      this.selectedUserIDs.forEach((id) => {
+        this.deleteUser(id);
+      });
+      this.clearSelectedUsers();
+    },
+    clearSelectedUsers() {
+      this.selectedUserIDs = [];
+    },
+    findUserById(id) {
+      return this.users.findIndex((user) => user.id == id);
     }
   },
   computed: {
@@ -203,6 +280,9 @@ export default {
         );
       }
       return filteredUsers;
+    },
+    actionButtonDisabled() {
+      return this.selectedUserIDs.length == 0;
     }
   }
 };
