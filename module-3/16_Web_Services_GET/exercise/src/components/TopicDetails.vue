@@ -11,6 +11,7 @@
 </template>
 
 <script>
+import TopicService from '../services/TopicService'
 export default {
   name: 'topic-details',
   props: {
@@ -22,15 +23,20 @@ export default {
         id: 0,
         title: '',
         messages: []
-      },
+      }
     }
+  },
+  created() {
+    TopicService
+    .getDetails(this.topicId)
+    .then(response => {
+      this.topic = response.data;
+    });
   }
 }
-axios.get(http://localhost:3000)
-.then((response) => {
-this.topic =response.data;
-this.isLoading = false;
-})
+
+
+
 </script>
 
 <style>
