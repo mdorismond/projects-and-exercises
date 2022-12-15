@@ -19,6 +19,10 @@ export default {
   },
   updateTopic(topic){
     return http.put(`/topics/${topic.id}`, topic);
+  },
+
+  deleteTopic(id) {
+    return http.delete(`/topics/${id}`);
   }
  
  
