@@ -18,10 +18,10 @@ ul {
 
 aside {
   width: 200px;
-  border: 3px;
+  border: 1px;
   border-color: rgba(0, 173, 238, 0.4);
   position: fixed;
- 
+  
 
 }
 
@@ -36,6 +36,7 @@ main {
 width: 200px;
 margin-left: 20px;
 margin-right: 20px;
+float: right;
 }
 
 li {
@@ -46,15 +47,19 @@ border-color: rgba(0, 173, 238, 0.4);
 margin-left: 5px;
 padding-left: 5px;
 border-left: 1px solid;
+border-radius: 1px;
+border-spacing: 2px;
 list-style-type: none;
-
+line-height: 1.5;
+word-spacing: 1em;
 
 }
 
 a {
 font-weight: bold;
 color: rgb(0, 173, 238);
-
+text-decoration:none;
+display:inline-block;
 
 }
 
@@ -70,6 +75,7 @@ div {
   display:inline-block
   width: 33%;
   border-color: rgba(170, 239, 135, 0.8);
+  border-radius: 1px;
 
 }
 
